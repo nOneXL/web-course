@@ -1,0 +1,52 @@
+.logo-and-search {
+    position: absolute;
+    height: 600px;
+    width: 620px;
+    left: 30%;
+    bottom: 10%; 
+}
+
+#logo {
+    height: 200px;
+    width: 600px;
+}
+
+.wrapper {
+    position: relative;
+    display: flex;
+    min-width: 100px;
+    padding-top: 20px;
+  }
+  
+.search {
+    border: 1px solid rgb(237, 220, 125);
+    border-radius: 5px;
+    height: 35px;
+    width: 100%;
+    padding: 2px 23px 2px 30px;
+    outline: 0;
+    background-color: #f4f5e0;
+}
+  
+.search-icon {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 14px;
+    padding-top: 20px;
+}
+
+.search-buttons {
+    padding-top: 30px;
+    padding-left: 150px;
+}
+
+#user-logo {
+    height: 30px;
+    width: 30px;
+}
+
+#languages-p {
+    padding-top: 15px;
+    padding-left: 52px;
+}
