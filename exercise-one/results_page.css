@@ -1,0 +1,273 @@
+body {
+    padding-top: 60px;
+    min-height: 100%;
+    position: relative;
+}
+
+#topbar {
+    display: flex;
+    height: 64px;
+    width: 100%;
+    top: 0;
+    align-items: flex-end;
+    position: fixed;
+    background-color: white;
+    margin-bottom: 80px;
+    scroll-margin-top: 60px;
+    z-index: 9;
+}
+
+.list-group-item {
+    width: 700px;
+    margin-bottom: 10px;
+}
+
+.list-group-item button {
+    float: right;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+.list-group-item.list-group-item-action.list-group-item-dark {
+    width: 250px;
+    border-radius: 50px;
+    margin-bottom: 10px;
+}
+
+#searchbarimage {
+    height: 50px;
+    padding: 0px 28px 10px 30px;
+}
+
+#searchbarbutton {
+    height: 45px;
+    width: 55px;
+    position: relative;
+    margin-right: -2px;
+    background-color: white;
+}
+
+#searchbarbutton svg {
+    height: 25px;
+    width: 35px;
+    position: relative;
+    left: -3px;
+}
+
+#searchbar {
+    width: 625px;
+    height: 45px;
+    border-radius: 100px;
+    border-color: lightgray;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 16px;
+    position: relative;
+    bottom: 5px;
+    overflow: hidden;
+    display: flex;
+    z-index: 100;
+}
+
+#searchbar > input {
+    height: 45px;
+    border-style: none;
+    font-size: 16px;
+    line-height: 45px;
+    padding-left: 20px;
+    flex: 1;
+}
+
+#searchbar > input:focus {
+    outline: none;
+}
+
+#searchbar button {
+    border: none;
+    cursor: pointer;
+}
+
+#searchresultsarea {
+    margin-left: 150px;
+    font-family: 'Arial';
+}
+
+#searchresultsnumber {
+    font-size: 0.8rem;
+    color: gray;
+}
+
+.searchresult h2 {
+    font-size: 19px;
+    line-height: 16px;
+    font-weight: normal;
+    color: rgb(29, 1, 189);
+    margin-bottom: 0px;
+    margin-top: 5px;
+}
+
+.searchresult a {
+    font-size: 14px;
+    line-height: 14px;
+    color: green;
+    margin-bottom: 0px;
+}
+
+.searchresult button {
+    font-size: 10px;
+    line-height: 14px;
+    color: green;
+    margin-bottom: 0px;
+    padding: 0px;
+    border-width: 0px;
+    background-color: white;
+}
+
+#settings {
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
+    position: absolute;
+    right: 102px;
+    bottom: 15px;
+    padding: 0;
+    border: none;
+}
+
+#profileimg {
+    border-radius: 50px;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    right: 40px;
+    bottom: 12px;
+}
+
+.searchresult p {
+    width: 625px;
+    font-size: 13px;
+    margin-top: 0px;
+    color: rgb(82, 82, 82);
+}
+
+.relatedsearches h3 {
+    font-weight: normal;
+    font-size: 19px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.relatedlists ul {
+    list-style: none;
+    color: rgb(29, 1, 189);
+    padding-left: 0px;
+    font-size: 14px;
+    margin-bottom: 50px;
+}
+
+.relatedlists ul li {
+    margin-bottom: 8px;
+}
+
+.pagelist {
+    list-style: none;
+    color: rgb(29, 135, 255);
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    margin-bottom: 30px;
+    margin-left: 100px;
+}
+
+.pagelistfirst {
+    margin-left: 20px;
+    font-size: 13px;
+}
+
+.pagebar {
+    margin-top: 40px;
+}
+
+.pagelistnumber::after {
+    content: 'E';
+    display: block;
+    position: absolute;
+    left: -2px;
+    top: -25px;
+    border-radius: 50px;
+    width: 13px;
+    height: 18px;
+    background-color: rgb(255, 196, 0);
+    color: white;
+    font-size: larger;
+    z-index: 2;
+}
+
+.pagelistfirst::after {
+    content: 'W';
+    display: block;
+    position: absolute;
+    left: -2px;
+    top: -25px;
+    border-radius: 50px;
+    width: 14px;
+    height: 18px;
+    background-color: red;
+    color: white;
+    z-index: 2;
+}
+
+.pagelist li {
+    margin-right: 15px;
+    position: relative;
+}
+
+.pagelistnext {
+    margin-left: 10px;
+    font-size: 13px;
+}
+
+.pagelistnext::before {
+    content: '>';
+    display: block;
+    position: absolute;
+    left: 5px;
+    top: -35px;
+    color: rgb(29, 135, 255);
+    font-size: 20px;
+    transform: scale(0.7, 1.2);
+}
+
+#footer {
+    background-color: rgb(238, 238, 238);
+    font-size: 13px;
+    color: rgb(85, 85, 85);
+}
+
+#footermenu {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin-top: 0px;
+    margin-left: 135px;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+}
+
+#footermenu li {
+    padding-right: 30px;
+}
+
+#footermenu li button{
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+#footerlocation {
+    display: flex;
+    direction: row;
+    margin-left: 170px;
+    position: relative;
+    top: 0%;
+}
