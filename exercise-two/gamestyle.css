@@ -4,6 +4,7 @@ html {
     width: 100%;
     height: 100%;
     font-family: Fredoka;
+    background-color: #98a5cf;
 }
 
 .game {
@@ -13,21 +14,21 @@ html {
     transform: translate(-50%, -50%);
 }
 
+#name {
+    font-family: Fredoka;
+    font-size: 14pt;
+    text-decoration: underline;
+}
+
 .controls {
     display: flex;
     gap: 20px;
     margin-bottom: 20px;
 }
 
-button {
-    background: #282A3A;
-    color: #FFF;
-    border-radius: 5px;
-    padding: 10px 20px;
-    border: 0;
-    cursor: pointer;
-    font-family: Fredoka;
-    font-size: 18pt;
+.btn.btn-success {
+    font-size: 20pt; 
+    padding: 5px 40px;
 }
 
 .moves {
