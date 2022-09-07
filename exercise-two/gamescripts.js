@@ -168,6 +168,7 @@ const flipCard = card => {
 
             clearInterval(state.loop)
         }, 1000)
+        startConfetti();
     }
 }
 
