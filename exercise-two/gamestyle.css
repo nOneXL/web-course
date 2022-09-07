@@ -1,5 +1,3 @@
-
-
 html {
     width: 100%;
     height: 100%;
@@ -33,15 +31,17 @@ html {
 }
 
 .moves {
-    background: #282A3A;
+    background: #b3bbf7;
     font-family: Fredoka;
     font-size: 18pt;
+    color: black;
 }
 
 .timer {
-    background: #282A3A;
+    background: #b3bbf7;
     font-family: Fredoka;
     font-size: 18pt;
+    color: black;
 }
 
 .disabled {
@@ -49,8 +49,11 @@ html {
 }
 
 .stats {
+    position: relative;
     color: #FFF;
     font-size: 14pt;
+    margin-left: 12%;
+    margin-bottom: 10%;
 }
 
 .board-container {
@@ -65,6 +68,7 @@ html {
 }
 
 .win {
+    margin-top: 30px;
     border-radius: 5px;
     box-shadow: 0 25px 50px rgb(33 33 33 / 25%);
     transition: transform .6s cubic-bezier(0.4, 0.0, 0.2, 1);
@@ -135,25 +139,38 @@ html {
 }
 
 .win {
-    position: absolute;
-    top: 0;
+    margin-bottom: 20%;
+    width: 700px;
+    height: 300px;
+    position: relative;
+    top: 80%;
     left: 0;
     width: 100%;
     height: 100%;
     text-align: center;
-    background: #FDF8E6;
+    /* background: #FDF8E6; */
+    box-shadow: none;
     transform: rotateY(180deg) rotateZ(50deg);
 }
 
 .win-text {
-    position: absolute;
-    top: 50%;
+    width: 500px;
+    height: 100px;
+    position: relative;
+    top: 100%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 21pt;
+    font-size: 22pt;
     color: #282A3A;
 }
 
 .highlight {
     color: #6f00fc;
+}
+
+.btn.btn-outline-primary.restart_game {
+    margin-bottom: 30%;
+    margin-left: 20%;
+    width: 300px;
+    height: 80px;
 }

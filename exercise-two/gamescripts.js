@@ -32,8 +32,10 @@ const selectors = {
     board: document.querySelector('.board'),
     moves: document.querySelector('.moves'),
     timer: document.querySelector('.timer'),
-    start: document.querySelector('button'),
-    win: document.querySelector('.win')
+    controls: document.querySelector('.controls'),
+    restart: document.querySelector('.btn.btn-outline-primary.restart_game'),
+    win: document.querySelector('.win'),
+    navbar: document.querySelector('.navbar.navbar-default')   
 }
 
 const state = {
@@ -80,6 +82,37 @@ const generateGame = () => {
     const emojis = ['🥔', '🍒', '🥑', '🌽', '🥕', '🍇', '🍉', '🍌', '🥭', '🍍', '😄','💗',
                     '🗼','😀','🗿','🗽','🥳','😡','🥵','🤖','💩','☠️','🧠','🧑‍💻']
 
+    const images = [
+        "icons8-binoculars-96",
+        "icons8-box-80",
+        "icons8-briefcase-64",
+        "icons8-clock-64",
+        "icons8-contacts-64",
+        "icons8-dribbble-80",
+        "icons8-facebook-80",
+        "icons8-female-user-80",
+        "icons8-google-plus-64",
+        "icons8-hand-cursor-96",
+        "icons8-home-80",
+        "icons8-idea-96",
+        "icons8-info-64",
+        "icons8-instagram-96",
+        "icons8-key-64",
+        "icons8-linkedin-96",
+        "icons8-menu-100",
+        "icons8-music-96",
+        "icons8-news-64",
+        "icons8-no-80",
+        "icons8-ok-64",
+        "icons8-pinterest-64",
+        "icons8-puzzle-64",
+        "icons8-reddit-80",
+        "icons8-settings-80",
+        "icons8-twitter-64",
+        "icons8-unavailable-64",
+        "icons8-user-male-80"
+    ]
+
     const picks = pickRandom(emojis, (dimensions * dimensions) / 2) 
     const items = shuffle([...picks, ...picks])
     const cards = `
@@ -100,7 +133,7 @@ const generateGame = () => {
 
 const startGame = () => {
     state.gameStarted = true
-    selectors.start.classList.add('disabled')
+    // selectors.start.classList.add('disabled')
 
     state.loop = setInterval(() => {
         state.totalTime++
@@ -118,7 +151,7 @@ const attachEventListeners = () => {
         if (eventTarget.className.includes('card') && !eventParent.className.includes('flipped')) {
             flipCard(eventParent)
         } else if (eventTarget.nodeName === 'BUTTON' && !eventTarget.className.includes('disabled')) {
-            startGame()
+            location.reload();
         }
     })
 }
@@ -159,15 +192,23 @@ const flipCard = card => {
         setTimeout(() => {
             selectors.boardContainer.classList.add('flipped')
             selectors.win.innerHTML = `
-                <span class="win-text">
-                    You won!<br />
-                    with <span class="highlight">${state.totalFlips}</span> moves<br />
-                    under <span class="highlight">${state.totalTime}</span> seconds
-                </span>
+                <div class="win-text">
+                    ${localStorage.getItem("name")} you won!<br />
+                    It took you: <br/>
+                     -- ${state.totalFlips} moves --<br />
+                     -- ${state.totalTime} seconds --
+                </div>
             `
 
             clearInterval(state.loop)
         }, 1000)
+        selectors.moves.remove()
+        selectors.timer.remove()
+        selectors.navbar.remove()
+        selectors.board.remove()
+        selectors.controls.remove()
+        selectors.restart.hidden = false;
+        selectors.restart.disabled = false;
         startConfetti();
     }
 }
