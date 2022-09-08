@@ -1,4 +1,4 @@
-document.getElementById("name").innerHTML = "Good luck " + localStorage.getItem("name") + " 😀";
+document.getElementById("name").innerHTML = "Good luck " + localStorage.getItem("name");
 var num = localStorage.getItem("num");
 
 function time(){
@@ -28,6 +28,7 @@ function pad(val) {
 
 
 const selectors = {
+    game_back: document.querySelector('.game-back'),
     boardContainer: document.querySelector('.board-container'),
     board: document.querySelector('.board'),
     moves: document.querySelector('.moves'),
@@ -138,6 +139,8 @@ const generateGame = () => {
 
 const startGame = () => {
     state.gameStarted = true
+    // selectors.start.classList.add('disabled')
+
     state.loop = setInterval(() => {
         state.totalTime++
 
@@ -182,6 +185,7 @@ const flipCard = card => {
             second_card = flippedCards[1].getElementsByClassName('card-back')[0]
             first_card.className = 'card-back matched'
             second_card.className = 'card-back matched'
+            // .className('card-back matched')
         }
 
         setTimeout(() => {
@@ -189,31 +193,30 @@ const flipCard = card => {
         }, 1000)
     }
 
+    // If there are no more cards that we can flip, we won the game
     if (!document.querySelectorAll('.card:not(.flipped)').length) {
-        selectors.win.hidden = false
         setTimeout(() => {
             selectors.boardContainer.classList.add('flipped')
             selectors.win.innerHTML = `
-            <div class="container middle">
-            <div class="row">
                 <div class="win-text">
                     ${localStorage.getItem("name")} you won!<br />
                     It took you: <br/>
-                    🥳 ${state.totalFlips} moves 🥳<br />
-                    🧠 ${state.totalTime} seconds 🧠<br />
-                     You're a Champion! 
-                    <button type="button" class="btn btn-outline-primary restart_game">Restart Game</button>
-                </div></div></div>
+                     -- ${state.totalFlips} moves --<br />
+                     -- ${state.totalTime} seconds --
+                </div>
             `
 
             clearInterval(state.loop)
         }, 1000)
+        // selectors.game_back.content = null
         selectors.moves.remove()
         selectors.timer.remove()
         selectors.navbar.remove()
-        selectors.board.remove()
         document.querySelector('.board').remove()
-        startConfetti();
+        selectors.controls.remove()
+        selectors.restart.hidden = false;
+        selectors.restart.disabled = false;
+        // startConfetti();
     }
 }
 
