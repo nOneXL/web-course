@@ -7,8 +7,8 @@ function ValidateForm() {
     return false;
   }
 
-  if (num < 2 || num > 25) {
-    alert(" please enter number between 0-25")
+  if (num < 1 || num > 25) {
+    alert(" please enter number between 1-25")
     return false;
   }
   localStorage.setItem("name", name);

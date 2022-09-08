@@ -79,39 +79,9 @@ const generateGame = () => {
     const dimensions = selectors.board.getAttribute('data-dimension')
 
    
-    const emojis = ['🥔', '🍒', '🥑', '🌽', '🥕', '🍇', '🍉', '🍌', '🥭', '🍍', '😄','💗',
-                    '🗼','😀','🗿','🗽','🥳','😡','🥵','🤖','💩','☠️','🧠','🧑‍💻']
+    const emojis = ['🗼','😀','🗿','🗽','🥳','😡','🥵','🤖','💩','☠️','🧠','🧑‍💻',
+                    '🥔', '🍒', '🥑', '🌽', '🥕', '🍇', '🍉', '🍌', '🥭', '🍍', '😄','💗']
 
-    const images = [
-        "icons8-binoculars-96",
-        "icons8-box-80",
-        "icons8-briefcase-64",
-        "icons8-clock-64",
-        "icons8-contacts-64",
-        "icons8-dribbble-80",
-        "icons8-facebook-80",
-        "icons8-female-user-80",
-        "icons8-google-plus-64",
-        "icons8-hand-cursor-96",
-        "icons8-home-80",
-        "icons8-idea-96",
-        "icons8-info-64",
-        "icons8-instagram-96",
-        "icons8-key-64",
-        "icons8-linkedin-96",
-        "icons8-menu-100",
-        "icons8-music-96",
-        "icons8-news-64",
-        "icons8-no-80",
-        "icons8-ok-64",
-        "icons8-pinterest-64",
-        "icons8-puzzle-64",
-        "icons8-reddit-80",
-        "icons8-settings-80",
-        "icons8-twitter-64",
-        "icons8-unavailable-64",
-        "icons8-user-male-80"
-    ]
 
     const picks = pickRandom(emojis, (dimensions * dimensions) / 2) 
     const items = shuffle([...picks, ...picks])
@@ -195,15 +165,17 @@ const flipCard = card => {
             selectors.boardContainer.classList.add('flipped')
             selectors.win.innerHTML = `
             <div class="container middle">
-            <div class="row">
-                <div class="win-text">
-                    ${localStorage.getItem("name")} you won!<br />
-                    It took you: <br/>
-                    🥳 ${state.totalFlips} moves 🥳<br />
-                    🧠 ${state.totalTime} seconds 🧠<br />
-                     You're a Champion! 
-                    <button type="button" class="btn btn-outline-primary restart_game">Restart Game</button>
-                </div></div></div>
+                <div class="row">
+                    <div class="win-text">
+                        ${localStorage.getItem("name")} you won!<br />
+                        It took you: <br/>
+                        🥳 ${state.totalFlips} moves 🥳<br />
+                        🧠 ${state.totalTime} seconds 🧠<br />
+                        You're a Champion! 
+                        <button type="button" class="btn btn-outline-primary restart_game">Restart Game</button>
+                    </div>
+                </div>
+            </div>
             `
 
             clearInterval(state.loop)
